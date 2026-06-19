@@ -12,6 +12,7 @@ const { Pool } = require('pg');
 const { ensureSchema } = require('./db/schema');
 const { runSync } = require('./sync');
 
+const { registerDashboardRoutes } = require('./routes/dashboard');
 const PORT = process.env.PORT || 3000;
 const SYNC_INTERVAL_MINUTES = parseInt(process.env.SYNC_INTERVAL_MINUTES || '15', 10);
 
@@ -41,6 +42,10 @@ app.get('/status', async (req, res) => {
 app.get('/sync-now', async (req, res) => {
   res.json({ message: 'Sync started — check /status shortly for results' });
   runSync(pool, { lookbackDays: 30 });
+
+});
+
+registerDashboardRoutes(app, pool);
 });
 
 async function start() {
