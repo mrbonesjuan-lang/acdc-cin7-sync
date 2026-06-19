@@ -46,7 +46,6 @@ app.get('/sync-now', async (req, res) => {
 });
 
 registerDashboardRoutes(app, pool);
-});
 
 async function start() {
   await ensureSchema(pool);
