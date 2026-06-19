@@ -1,0 +1,19 @@
+{
+  "name": "cin7-sync-service",
+  "version": "1.0.0",
+  "description": "Polls Cin7 Omni API on a schedule and syncs data into PostgreSQL for Metabase",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "pg": "^8.12.0",
+    "node-cron": "^3.0.3",
+    "axios": "^1.7.4",
+    "dotenv": "^16.4.5"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
